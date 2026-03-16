@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Survey Analytics Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+  background:#0C2B4E;
+  font-family:Arial;
+}
+
+.container{
+  max-width:900px;
+  margin:50px auto;
+  background:white;
+  padding:40px;
+  border-radius:12px;
+}
+
+canvas{
+  margin-top:30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Survey Analytics Dashboard</h2>
+
+<p id="responseCount"></p>
+
+<canvas id="attendanceChart"></canvas>
+
+<canvas id="stressChart"></canvas>
+
+</div>
+
+
+<script>
+
+fetch("/survey-data")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("responseCount").innerText =
+"Total Responses: " + data.length;
+
+
+// -------- Attendance Chart --------
+
+const attendanceCounts = {
+"Above 90":0,
+"75-90":0,
+"65-75":0,
+"Below 65":0
+};
+
+data.forEach(r=>{
+attendanceCounts[r.attendance]++;
+});
+
+
+new Chart(document.getElementById("attendanceChart"),{
+
+type:"pie",
+
+data:{
+labels:Object.keys(attendanceCounts),
+
+datasets:[{
+data:Object.values(attendanceCounts),
+backgroundColor:["#4CAF50","#2196F3","#FFC107","#F44336"]
+}]
+}
+
+});
+
+
+
+// -------- Stress Chart --------
+
+const stressCounts = {};
+
+data.forEach(r=>{
+if(!stressCounts[r.stable]) stressCounts[r.stable]=0;
+stressCounts[r.stable]++;
+});
+
+
+new Chart(document.getElementById("stressChart"),{
+
+type:"bar",
+
+data:{
+labels:Object.keys(stressCounts),
+
+datasets:[{
+label:"Stress Level",
+data:Object.values(stressCounts),
+backgroundColor:"#2563eb"
+}]
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

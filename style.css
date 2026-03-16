@@ -1,0 +1,115 @@
+/* GLOBAL BODY STYLING */
+body {
+    background: #F4F4F4;
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* FORM CONTAINER selects an element with id="surveyForm"*/
+#surveyForm {
+    border-radius: 30px;
+    border: 1px solid #F4F4F4;
+    background-color: #1D546C !important;
+    transition: 0.3s ease-in-out;
+}
+
+
+#surveyForm:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    transform: scale(1.01);
+}
+
+/* HEADINGS */
+h1, h2 {
+    color:#0C2B4E;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* FORM LABELS */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* INPUTS, SELECTS, TEXTAREAS */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    border: 1px solid #615f5f !important;
+    border-radius: 20px !important;
+    padding: 10px !important;
+    transition: 0.2s;
+}
+/*This block controls how form fields look when the user clicks on them or types in them .
+basically, the focus state.*/
+input:focus, /* applies to all input types */
+textarea:focus, /*big text areas*/
+select:focus { /*dropdown menu*/
+    border-color: #0C2B4E !important;
+    box-shadow: 0 0 4px rgba(79, 115, 255, 0.4) !important;
+}
+
+/* CHECKBOX/RADIO spacing and styling  */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+/* the submit button */
+.btn-primary {
+    background:  #1D546C!important;
+    border-color: #0C2B4E !important;
+    padding: 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #256a87 !important;
+    border-color: #0C2B4E !important;
+    transform: scale(1.03);
+}
+
+.welcome-btn {
+    background-color: #1D546C !important;
+    border-color: #0C2B4E !important;
+    color: #F4F4F4 !important;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.welcome-btn:hover {
+    background-color: #256a87 !important;
+    border-color: #0C2B4E !important;
+    transform: scale(1.05);
+}
+
+.thankyou-btn {
+    background-color:#1D546C !important;
+    border-color: #0C2B4E !important;
+    color: white !important;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.thankyou-btn:hover {
+    background-color: #256a87 !important;
+    border-color: #0C2B4E !important;
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE, tells browser:only apply the following CSS when the screen width is 576px or smaller*/
+@media (max-width: 576px) {
+    #surveyForm {
+        padding: 20px !important;
+    }
+    h2 {
+        font-size: 1.5rem; /* Adjust heading size for small screens */
+    }
+}
