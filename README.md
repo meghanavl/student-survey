@@ -1,7 +1,7 @@
 # Student Well-Being & Academic Experience Survey
-
 A full-stack survey application designed to collect and analyze student feedback about academic workload, stress levels, and overall semester experience.
 This project demonstrates frontend form design, client-side validation, backend API development, and survey analytics visualization.
+
 ----------
 
 ## Features
